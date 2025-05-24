@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      DB_URI: mongodb://mongo:27017/vehicles
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
