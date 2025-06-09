@@ -8,7 +8,7 @@ describe('Users Endpoints', () => {
   let adminToken, userToken, adminUser, regularUser;
 
   beforeAll(async () => {
-    await mongoose.connect('mongodb://localhost:27017/propelize_test');
+    await mongoose.connect('mongodb://localhost:27017/propelize_db');
   });
 
   beforeEach(async () => {

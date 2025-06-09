@@ -9,7 +9,7 @@ describe('Vehicles Endpoints', () => {
   let userToken, user;
 
   beforeAll(async () => {
-    await mongoose.connect('mongodb://localhost:27017/propelize_test');
+    await mongoose.connect('mongodb://localhost:27017/propelize_db');
   });
 
   beforeEach(async () => {
