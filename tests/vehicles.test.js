@@ -17,6 +17,7 @@ describe('Vehicles Endpoints', () => {
     await Vehicle.deleteMany({});
 
     // Créer un utilisateur
+    //Arrêter si l'utilisateur existe déjà
     user = new User({
       username: 'testuser',
       email: 'test@example.com',
