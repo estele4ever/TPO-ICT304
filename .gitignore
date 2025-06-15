@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 node_modules/
 .env
 .env.local
@@ -7,4 +8,15 @@ dist/
 build/
 *.log
 data/
+=======
+node_modules/
+.env
+.env.local
+.env.production
+.DS_Store
+dist/
+build/
+*.log
+data/
+>>>>>>> ad6356a49617bc80157d79b839f12615aa266492
 coverage/

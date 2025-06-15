@@ -1,6 +1,9 @@
 // src/routes/users.js
 const express = require('express');
+<<<<<<< HEAD
 const bcrypt = require('bcryptjs');
+=======
+>>>>>>> ad6356a49617bc80157d79b839f12615aa266492
 const User = require('../models/User');
 const { authenticate, authorize } = require('../middleware/auth');
 const { validateUser } = require('../middleware/validation');
@@ -48,6 +51,7 @@ router.get('/', authenticate, authorize('admin'), async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 // GET /api/users/:id - Récupérer un utilisateur par son ID
 router.get('/:id', authenticate, async (req, res) => {
   try {
@@ -90,6 +94,8 @@ router.get('/:id', authenticate, async (req, res) => {
   }
 });
 
+=======
+>>>>>>> ad6356a49617bc80157d79b839f12615aa266492
 // GET /api/users/profile - Profil de l'utilisateur connecté
 router.get('/profile', authenticate, async (req, res) => {
   res.json({
@@ -98,6 +104,7 @@ router.get('/profile', authenticate, async (req, res) => {
   });
 });
 
+<<<<<<< HEAD
 // PUT /api/users/:id/password - Mettre à jour le mot de passe
 router.put('/:id/password', authenticate, async (req, res) => {
   try {
@@ -240,6 +247,8 @@ router.put('/:id/activate', authenticate, authorize('admin'), async (req, res) =
   }
 });
 
+=======
+>>>>>>> ad6356a49617bc80157d79b839f12615aa266492
 // PUT /api/users/:id - Mettre à jour un utilisateur
 router.put('/:id', authenticate, async (req, res) => {
   try {
@@ -255,8 +264,12 @@ router.put('/:id', authenticate, async (req, res) => {
 
     const updates = { ...req.body };
     delete updates.password; // Empêcher la modification du mot de passe via cette route
+<<<<<<< HEAD
     delete updates.role; // Seul un admin peut modifier les rôles via une route dédiée
     updates.updatedAt = new Date();
+=======
+    delete updates.role; // Seul un admin peut modifier les rôles
+>>>>>>> ad6356a49617bc80157d79b839f12615aa266492
 
     const user = await User.findByIdAndUpdate(id, updates, { 
       new: true, 
@@ -289,10 +302,14 @@ router.delete('/:id', authenticate, authorize('admin'), async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(
       req.params.id,
+<<<<<<< HEAD
       { 
         isActive: false,
         updatedAt: new Date()
       },
+=======
+      { isActive: false },
+>>>>>>> ad6356a49617bc80157d79b839f12615aa266492
       { new: true }
     );
 
@@ -315,4 +332,8 @@ router.delete('/:id', authenticate, authorize('admin'), async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> ad6356a49617bc80157d79b839f12615aa266492

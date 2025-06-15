@@ -21,6 +21,7 @@ router.get('/', authenticate, async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 // GET /api/vehicles/make/:make - Récupérer les véhicules par marque
 router.get('/make/:make', authenticate, async (req, res) => {
   try {
@@ -131,6 +132,8 @@ router.get('/search', authenticate, async (req, res) => {
   }
 });
 
+=======
+>>>>>>> ad6356a49617bc80157d79b839f12615aa266492
 // POST /api/vehicles - Créer un véhicule (protégé)
 router.post('/', authenticate, validateVehicle, async (req, res) => {
   try {
@@ -184,6 +187,7 @@ router.get('/:id', authenticate, async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 // PUT /api/vehicles/:id/deactivate - Désactiver un véhicule
 router.put('/:id/deactivate', authenticate, async (req, res) => {
   try {
@@ -284,6 +288,8 @@ router.put('/:id/activate', authenticate, async (req, res) => {
   }
 });
 
+=======
+>>>>>>> ad6356a49617bc80157d79b839f12615aa266492
 // PUT /api/vehicles/:id - Mettre à jour un véhicule (protégé)
 router.put('/:id', authenticate, validateVehicle, async (req, res) => {
   try {
@@ -304,6 +310,7 @@ router.put('/:id', authenticate, validateVehicle, async (req, res) => {
       });
     }
 
+<<<<<<< HEAD
     const updateData = {
       ...req.body,
       updatedAt: new Date()
@@ -312,6 +319,11 @@ router.put('/:id', authenticate, validateVehicle, async (req, res) => {
     const updatedVehicle = await Vehicle.findByIdAndUpdate(
       req.params.id,
       updateData,
+=======
+    const updatedVehicle = await Vehicle.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+>>>>>>> ad6356a49617bc80157d79b839f12615aa266492
       { new: true, runValidators: true }
     ).populate('owner', 'username email');
 
@@ -349,10 +361,14 @@ router.delete('/:id', authenticate, async (req, res) => {
       });
     }
 
+<<<<<<< HEAD
     await Vehicle.findByIdAndUpdate(req.params.id, { 
       isActive: false,
       updatedAt: new Date()
     });
+=======
+    await Vehicle.findByIdAndUpdate(req.params.id, { isActive: false });
+>>>>>>> ad6356a49617bc80157d79b839f12615aa266492
 
     res.json({
       success: true,
@@ -366,4 +382,9 @@ router.delete('/:id', authenticate, async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+
+>>>>>>> ad6356a49617bc80157d79b839f12615aa266492
