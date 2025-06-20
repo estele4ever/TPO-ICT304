@@ -305,7 +305,7 @@ router.delete('/:id', authenticate, authorize('admin'), async (req, res) => {
 
     res.json({
       success: true,
-      message: 'Utilisateur désactivé avec succès'
+      message: 'Utilisateur supprimer avec succès'
     });
   } catch (error) {
     res.status(500).json({
